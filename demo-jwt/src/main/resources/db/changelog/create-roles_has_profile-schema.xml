@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="4" author="Misael Lopez">
+        <createTable tableName="roles_has_profile" remarks="Many-to-many relation between roles and profiles">
+            <column name="profile_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_roles_has_profile_profile" references="profile(profile_id)"/>
+            </column>
+            <column name="role_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_roles_has_profile_role" references="roles(role_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
